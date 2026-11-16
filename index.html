@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07110b">
+  <title>MellstroyRNG</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="MellstroyRNG">MELLSTROY<span>RNG</span></a>
+    <nav class="nav">
+      <button class="nav-btn active" data-view="home" aria-label="Главная"><span>⌂</span><small>Главная</small></button>
+      <button class="nav-btn" data-view="profile" aria-label="Профиль"><span>♙</span><small>Профиль</small></button>
+      <button class="nav-btn" data-view="leaderboard" aria-label="Лидерборд"><span>♜</span><small>Лидерборд</small></button>
+      <button class="nav-btn" data-view="inventory" aria-label="Инвентарь"><span>▤</span><small>Инвентарь</small></button>
+    </nav>
+    <div class="total-box"><span>СТОИМОСТЬ ИНВЕНТАРЯ</span><strong id="totalValue">0</strong><i>валюты</i></div>
+    <button class="guest-pill" id="guestButton">♙ <span id="guestName">Гость</span></button>
+  </header>
+
+  <div class="ticker"><div class="ticker-track">
+    <span>✦ MELLS TROY RNG</span><span>КРУТИ МЕМЫ • ЛОВИ ЛЕГЕНДЫ</span><span>✦ MELLS TROY RNG</span><span>КРУТИ МЕМЫ • ЛОВИ ЛЕГЕНДЫ</span><span>✦ MELLS TROY RNG</span><span>КРУТИ МЕМЫ • ЛОВИ ЛЕГЕНДЫ</span>
+  </div></div>
+
+  <main>
+    <section class="view active" id="homeView">
+      <div class="hero-heading"><div class="eyebrow"><span class="pulse-dot"></span> MEME ROULETTE</div>
+        <h1>Испытай свою <em>удачу.</em></h1>
+        <p>Какой мем попадётся тебе сегодня?</p>
+      </div>
+      <div class="roulette-wrap">
+        <div class="roulette-glow"></div>
+        <div class="roulette" id="roulette" aria-live="polite"></div>
+        <div class="center-marker"></div>
+      </div>
+      <div class="current-info"><div class="current-price" id="currentPrice">235.000 <span>валюты</span></div><div class="current-caption" id="currentCaption">красавчик</div></div>
+      <button class="spin-button" id="spinButton"><span class="spin-icon">⟳</span> Крути Меллстроя!</button>
+      <div class="spin-hint" id="spinHint">РУЛЕТКА КРУТИТСЯ АВТОМАТИЧЕСКИ</div>
+    </section>
+
+    <section class="view" id="profileView">
+      <div class="section-heading"><div class="eyebrow">ТВОЙ АККАУНТ</div><h2>Профиль</h2></div>
+      <div class="profile-card panel"><div class="avatar">♙</div><div><span class="muted">ИГРОК</span><h3 id="profileName">Гость</h3><p>Гостевой аккаунт · без пароля</p></div><div class="profile-stat"><span>ПРЕДМЕТОВ</span><strong id="profileItems">0</strong></div></div>
+      <div class="stats-grid"><div class="panel stat"><span>Стоимость инвентаря</span><strong id="profileWorth">0</strong></div><div class="panel stat"><span>Открыто мемов</span><strong id="profileCount">0</strong></div></div>
+    </section>
+
+    <section class="view" id="leaderboardView">
+      <div class="section-heading"><div class="eyebrow">ТОП ИГРОКОВ</div><h2>Лидерборд</h2><p>Локальный рейтинг на этом устройстве</p></div>
+      <div class="panel table-panel"><div class="table-head"><span>#</span><span>ИГРОК</span><span>ИНВЕНТАРЬ</span></div><div id="leaderboardRows"></div></div>
+    </section>
+
+    <section class="view" id="inventoryView">
+      <div class="section-heading"><div class="eyebrow">ТВОИ НАХОДКИ</div><h2>Инвентарь</h2><p>Каждый выпавший мем сохраняется, включая повторки.</p></div>
+      <div class="inventory-summary panel"><span>ОБЩАЯ СТОИМОСТЬ</span><strong id="inventoryWorth">0</strong></div>
+      <div class="inventory-grid" id="inventoryGrid"></div>
+    </section>
+  </main>
+
+  <div class="sound-control panel">
+    <button id="muteButton" aria-label="Включить или выключить звук">♫</button>
+    <input id="volume" type="range" min="0" max="100" value="35" aria-label="Громкость">
+    <span id="volumeLabel">35%</span>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
